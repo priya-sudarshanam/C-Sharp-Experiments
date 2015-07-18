@@ -1,0 +1,4 @@
+C:\BalloonShop\BalloonShop\bin\BalloonShop.dll
+C:\BalloonShop\BalloonShop\bin\BalloonShop.pdb
+C:\BalloonShop\BalloonShop\obj\Debug\BalloonShop.dll
+C:\BalloonShop\BalloonShop\obj\Debug\BalloonShop.pdb
