@@ -1,5 +1,0 @@
-c:\users\priyashree\documents\visual studio 2010\Projects\CExperiments\CExperiments\bin\Debug\CExperiments.exe
-c:\users\priyashree\documents\visual studio 2010\Projects\CExperiments\CExperiments\bin\Debug\CExperiments.pdb
-c:\users\priyashree\documents\visual studio 2010\Projects\CExperiments\CExperiments\obj\x86\Debug\CExperiments.exe
-c:\users\priyashree\documents\visual studio 2010\Projects\CExperiments\CExperiments\obj\x86\Debug\CExperiments.pdb
-C:\Users\priyashree\documents\visual studio 2010\Projects\CExperiments\CExperiments\obj\x86\Debug\CExperiments.csprojResolveAssemblyReference.cache
