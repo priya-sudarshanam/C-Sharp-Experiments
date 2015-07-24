@@ -18,13 +18,23 @@ public partial class UserControl_ProductsList : System.Web.UI.UserControl
         string departmentId = Request.QueryString["DepartmentID"];
         string categoryId = Request.QueryString["CategoryID"];
         string page = Request.QueryString["Page"];
+        string searchString = Request.QueryString["Search"];
 
         if (page == null) page = "1";
         int howManyPages = 1;
         string firstPageUrl = "";
         string pagerFormat = "";
 
-        if (categoryId != null) {
+        if (searchString != null) {
+            string allWords = Request.QueryString["AllWords"];
+            list.DataSource = CatalogAccess.Search(searchString,allWords,page,out howManyPages);
+            list.DataBind();
+
+            firstPageUrl = Link.ToSearch(searchString,allWords.ToUpper() =="TRUE","1");
+            pagerFormat = Link.ToSearch(searchString,allWords.ToUpper() =="TRUE","{0}");
+
+        }
+        else if (categoryId != null) {
             list.DataSource = CatalogAccess.GetProductsInCategory(categoryId,page, 
                 out howManyPages);
             list.DataBind();

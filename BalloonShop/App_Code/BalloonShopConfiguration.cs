@@ -23,6 +23,7 @@ public static class BalloonShopConfiguration
         private static readonly int productsPerPage;
         private static readonly int productsDescriptionLength;       
         private static readonly string siteName;
+        private static readonly int searchWords;
 
         static BalloonShopConfiguration()
         {
@@ -33,6 +34,7 @@ public static class BalloonShopConfiguration
             mailEnableErrorLogEmail = ConfigurationManager.AppSettings["EnableErrorLogEmail"];
             mailErrorLogEmail = ConfigurationManager.AppSettings["ErrorLogEmail"];
             productsPerPage = System.Int32.Parse(ConfigurationManager.AppSettings["ProductsPerPage"]);
+            searchWords = System.Int32.Parse(ConfigurationManager.AppSettings["SearchWords"]);
             productsDescriptionLength = System.Int32.Parse(ConfigurationManager.AppSettings["ProductsDescriptionLength"]);
             siteName = ConfigurationManager.AppSettings["SiteName"];
             dbConnectionString = ConfigurationManager.ConnectionStrings["BalloonShopConnection"].ConnectionString;
@@ -44,6 +46,14 @@ public static class BalloonShopConfiguration
             get
             {
                 return dbConnectionString;
+            }
+        }
+
+        public static int SearchWords
+        {
+            get
+            {
+                return searchWords;
             }
         }
 

@@ -70,4 +70,14 @@ public class Link
         return ToCategory(departmentId,categoryId, "1");
     }
 
+    public static string ToSearch(string searchString, bool allWords, string page){
+        string searchUrlP1 = "/Search.aspx?Search={0}&AllWords={1}";
+        string searchUrlP2 = "/Search.aspx?Search={0}&AllWords={1}&Page={2}";
+
+        if(page == "1")
+            return BuildAbsolute(string.Format(searchUrlP1,searchString, allWords.ToString()));
+        else
+            return BuildAbsolute(string.Format(searchUrlP2,searchString, allWords.ToString(),page));
+    }
+
 }

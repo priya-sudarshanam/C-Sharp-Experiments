@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.Common;
-
+using System.Text.RegularExpressions;
 
 /// <summary>
 /// Department Details data
@@ -44,6 +44,163 @@ public static class CatalogAccess
 		// TODO: Add constructor logic here
 		//
 	}
+
+
+    public static bool DeleteDepartment(string deptId)
+    {
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        comm.CommandText = "CatalogDeleteDepartment";
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@DepartmentId";
+        param.Value = deptId;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+
+        int result = -1;
+        try
+        {
+            result = GenericDataAccess.ExecuteNonQuery(comm);
+        }
+        catch
+        {
+            throw;
+        }
+        return (result != -1);
+
+    }
+
+    public static bool UpdateDepartment(string deptId, string dName, string dDesc)
+    {
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        comm.CommandText = "CatalogUpdateDepartment";
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@DepartmentId";
+        param.Value = deptId;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@DepartmentName";
+        param.Value = dName;
+        param.DbType = DbType.String;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@DepartmentDescription";
+        param.Value = dDesc;
+        param.DbType = DbType.String;
+        comm.Parameters.Add(param);
+
+        int result = -1;
+        try
+        {
+            result = GenericDataAccess.ExecuteNonQuery(comm);
+        }
+        catch
+        {
+            throw;
+        }
+        return (result != -1);
+    }
+
+
+    public static bool AddDepartment(string dName, string dDesc)
+    {
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        comm.CommandText = "CatalogAddDepartment";
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@DepartmentName";
+        param.Value = dName;
+        param.DbType = DbType.String;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@DepartmentDescription";
+        param.Value = dDesc;
+        param.DbType = DbType.String;
+        comm.Parameters.Add(param);
+
+        int result = -1;
+        try
+        {
+            result = GenericDataAccess.ExecuteNonQuery(comm);
+        }
+        catch
+        {
+            throw;
+        }
+        return (result != -1);
+    }
+
+
+
+
+    public static DataTable Search(string searchString, string allWords,
+        string pageNumber, out int howManyPages)
+    {
+        DbCommand comm = GenericDataAccess.CreateCommand();
+        comm.CommandText = "SearchCatalog";
+        DbParameter param = comm.CreateParameter();
+        param.ParameterName = "@DescriptionLength";
+        param.Value = BalloonShopConfiguration.ProductsDescriptionLength;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+
+        param = comm.CreateParameter();
+        param.ParameterName = "@AllWords";
+        param.Value =allWords.ToUpper() == "TRUE" ? "1" : "0";
+        param.DbType = DbType.Byte;
+        comm.Parameters.Add(param);
+       
+        param = comm.CreateParameter();
+        param.ParameterName = "@PageNumber";
+        param.Value = pageNumber;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@ProductsPerPage";
+        param.Value = BalloonShopConfiguration.ProductsPerPage;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+        // create a new parameter
+        param = comm.CreateParameter();
+        param.ParameterName = "@HowManyResults";
+        param.Direction = ParameterDirection.Output;
+        param.DbType = DbType.Int32;
+        comm.Parameters.Add(param);
+
+
+        int howManyWords = BalloonShopConfiguration.SearchWords;
+        string[] words = Regex.Split(searchString, "[^a-zA-Z0-9]+");
+
+        int index = 1;
+        for(int i=0; i <= words.GetUpperBound(0) &&  index <= howManyWords; i++) 
+            if (words[i].Length > 2){
+                param = comm.CreateParameter();
+                param.ParameterName = "@Word"+ index.ToString();
+                param.Value = words[i];
+                param.DbType = DbType.String;
+                comm.Parameters.Add(param);
+                index++;
+            }
+
+            // execute the stored procedure and save the results in a DataTable
+            DataTable table = GenericDataAccess.ExecuteSelectCommand(comm);
+
+            // calculate how many pages of products and set the out parameter
+            int howManyProducts =
+            Int32.Parse(comm.Parameters["@HowManyResults"].Value.ToString());
+            howManyPages = (int)Math.Ceiling((double)howManyProducts /
+                             (double)BalloonShopConfiguration.ProductsPerPage);
+                        
+        
+
+        // return the page of products
+        return table;
+
+    }
+
 
     public static DataTable GetProductAttributes(string productId)
     {

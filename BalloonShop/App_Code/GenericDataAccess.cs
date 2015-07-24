@@ -17,6 +17,48 @@ public static class GenericDataAccess
 		//
 	}
 
+    public static int ExecuteNonQuery(DbCommand comm)
+    {
+        int retrievedRows = -1;
+        try
+        {
+            comm.Connection.Open();
+            retrievedRows = comm.ExecuteNonQuery();
+
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+        finally
+        {
+            comm.Connection.Close();
+        }
+        return retrievedRows;
+
+    }
+
+    public static string ExecuteScalar(DbCommand comm)
+    {
+        string retrievedRows = "";
+        try
+        {
+            comm.Connection.Open();
+            retrievedRows = comm.ExecuteScalar().ToString();
+
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+        finally
+        {
+            comm.Connection.Close();
+        }
+        return retrievedRows;
+
+    }
+
     //executes command and returns the result as a Datatable object
     public static DataTable ExecuteSelectCommand(DbCommand command)
     {

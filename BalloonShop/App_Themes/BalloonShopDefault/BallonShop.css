@@ -122,3 +122,78 @@ a.CategorySelected {
   margin-top : 10px;
   margin-bottom: 10px;   
 }
+
+.SearchBox
+{
+  border-collapse:collapse;
+  margin-top:20px;
+  width:200px;
+}
+.SearchBoxHead
+{
+  border: #0468a4 1px solid;
+  background-color: #FFFF99;
+  text-align: center;   
+}
+.SearchBoxContent
+{
+  border: #0468a4 1px solid;
+  padding : 5px 0px 5px 12px;
+}
+.UserInfoHead {
+    border: #cc6666 1px solid;
+    background-color: #dc143c;
+    color: #f5f5dc;
+    text-align: center;
+}
+.UserInfoContent {
+    border: #cc6666 1px solid;
+    padding: 5px 0px 5px 12px;
+    line-height: 20px;
+}
+.AdminTitle 
+{
+    text-align:center;
+    font-size: 24px;
+    font-weight: bold;
+}
+.Window .Main .Right .AdminHeader {
+    margin: 5px 5px 5px 0px;
+    width: 100%;
+}
+.AdminContents {
+    margin: 5px 5px 5px 0px;
+    width: 900px;
+    float: left;
+}
+.AdminError {
+    color: Red;
+}
+.Grid {
+    border-color: #E7E7FF;
+    margin-top: 20px;
+    width: 100%;
+}
+.GridHeader {
+    color: White;
+    background-color: Navy;
+}
+.GridRow
+{
+    color: Navy;
+    background-color: #E7E7FF;
+}
+.GridSelectedRow
+{
+    color: #F7F7F7;
+    background-color: #738A9C;
+}
+.GridEditingRow
+{
+    color: Navy;
+}
+.GridAlternateRow
+{
+    color: Navy;
+    background-color: #F7F7F7;
+}

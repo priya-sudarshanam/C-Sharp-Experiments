@@ -9,8 +9,9 @@ public partial class UserControl_DepartmentList : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        list.DataSource = CatalogAccess.GetDepartments();
-        list.DataBind();
-
+        if (!IsPostBack) {
+            list.DataSource = CatalogAccess.GetDepartments();
+            list.DataBind();
+        }
     }
 }

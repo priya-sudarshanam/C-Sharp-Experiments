@@ -4,6 +4,10 @@
 
 <%@ Register src="UserControl/CategoriesList.ascx" tagname="CategoriesList" tagprefix="uc2" %>
 
+<%@ Register src="UserControl/SearchBox.ascx" tagname="SearchBox" tagprefix="uc3" %>
+
+<%@ Register src="UserControl/UserInfo.ascx" tagname="UserInfo" tagprefix="uc4" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -18,7 +22,10 @@
          <div class="Main">
            <div class="Left">
              <div class="Container">
-                    &nbsp;<uc1:DepartmentList ID="DepartmentList1" runat="server" />
+                    &nbsp;<uc4:UserInfo ID="UserInfo1" runat="server" />
+                    <uc3:SearchBox 
+                        ID="SearchBox1" runat="server" />
+                    <uc1:DepartmentList ID="DepartmentList1" runat="server" />
                     <br />
                     <uc2:CategoriesList ID="CategoriesList1" runat="server" />
                     <br />

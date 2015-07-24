@@ -3,7 +3,7 @@
 
 <uc1:Pager ID="topPager" runat="server" Visible="false"/>
 <asp:DataList ID="list" runat="server" CssClass="ProductList" RepeatColumns="2" 
-    onitemdatabound="list_ItemDataBound">
+    onitemdatabound="list_ItemDataBound" ViewStateMode="Disabled">
  <ItemTemplate>
    <h3 class="ProductTitle">
      <a href="<%# Link.ToProduct(Eval("ProductID").ToString()) %>">
