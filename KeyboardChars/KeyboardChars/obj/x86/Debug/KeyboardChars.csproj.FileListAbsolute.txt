@@ -1,0 +1,7 @@
+C:\Users\priyashree\Documents\Visual Studio 2010\Projects\KeyboardChars\KeyboardChars\bin\Debug\KeyboardChars.exe
+C:\Users\priyashree\Documents\Visual Studio 2010\Projects\KeyboardChars\KeyboardChars\bin\Debug\KeyboardChars.pdb
+C:\Users\priyashree\Documents\Visual Studio 2010\Projects\KeyboardChars\KeyboardChars\obj\x86\Debug\KeyboardChars.Form1.resources
+C:\Users\priyashree\Documents\Visual Studio 2010\Projects\KeyboardChars\KeyboardChars\obj\x86\Debug\KeyboardChars.Properties.Resources.resources
+C:\Users\priyashree\Documents\Visual Studio 2010\Projects\KeyboardChars\KeyboardChars\obj\x86\Debug\KeyboardChars.csproj.GenerateResource.Cache
+C:\Users\priyashree\Documents\Visual Studio 2010\Projects\KeyboardChars\KeyboardChars\obj\x86\Debug\KeyboardChars.exe
+C:\Users\priyashree\Documents\Visual Studio 2010\Projects\KeyboardChars\KeyboardChars\obj\x86\Debug\KeyboardChars.pdb
