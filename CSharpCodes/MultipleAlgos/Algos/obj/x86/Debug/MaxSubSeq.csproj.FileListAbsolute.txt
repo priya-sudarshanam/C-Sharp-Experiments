@@ -1,0 +1,5 @@
+c:\users\priyashree\documents\visual studio 2010\Projects\MaxSubSeq\MaxSubSeq\bin\Debug\MaxSubSeq.exe
+c:\users\priyashree\documents\visual studio 2010\Projects\MaxSubSeq\MaxSubSeq\bin\Debug\MaxSubSeq.pdb
+c:\users\priyashree\documents\visual studio 2010\Projects\MaxSubSeq\MaxSubSeq\obj\x86\Debug\MaxSubSeq.exe
+c:\users\priyashree\documents\visual studio 2010\Projects\MaxSubSeq\MaxSubSeq\obj\x86\Debug\MaxSubSeq.pdb
+C:\Users\priyashree\documents\visual studio 2010\Projects\MaxSubSeq\MaxSubSeq\obj\x86\Debug\MaxSubSeq.csprojResolveAssemblyReference.cache
